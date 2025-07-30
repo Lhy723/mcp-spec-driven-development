@@ -1,0 +1,149 @@
+[project]
+name = "mcp-spec-driven-development"
+version = "0.1.0"
+description = "为AI助手提供系统化功能开发方法论的MCP（模型上下文协议）工具"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "MCP Spec-Driven Development Contributors" }
+]
+maintainers = [
+    { name = "lhy", email = "873904524@qq.com" }
+]
+keywords = [
+    "mcp",
+    "model-context-protocol",
+    "ai-assistant",
+    "spec-driven-development",
+    "requirements",
+    "design",
+    "tasks",
+    "ears-format",
+    "development-methodology"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Documentation",
+    "Topic :: Software Development :: Quality Assurance",
+    "Typing :: Typed",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.12.2",
+    "pydantic>=2.0.0",
+    "jinja2>=3.1.0",
+    "structlog>=23.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/your-org/mcp-spec-driven-development"
+Documentation = "https://github.com/your-org/mcp-spec-driven-development#readme"
+Repository = "https://github.com/your-org/mcp-spec-driven-development.git"
+Issues = "https://github.com/your-org/mcp-spec-driven-development/issues"
+Changelog = "https://github.com/your-org/mcp-spec-driven-development/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.0.0",
+    "pytest-mock>=3.10.0",
+    "pytest-benchmark>=4.0.0",
+    "black>=23.0.0",
+    "mypy>=1.0.0",
+    "pre-commit>=3.0.0",
+    "hypothesis>=6.0.0",
+]
+
+[project.scripts]
+mcp-spec-driven-development = "mcp_spec_driven_development:main"
+
+[build-system]
+requires = ["uv_build>=0.8.3,<0.9.0"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --strict-markers --cov=src/mcp_spec_driven_development --cov-report=term-missing"
+testpaths = ["tests"]
+asyncio_mode = "auto"
+markers = [
+    "integration: marks tests as integration tests",
+    "performance: marks tests as performance tests",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["*/tests/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+]
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "hypothesis>=6.136.6",
+    "mypy>=1.17.0",
+    "pre-commit>=4.2.0",
+    "pytest>=8.4.1",
+    "pytest-asyncio>=1.1.0",
+    "pytest-benchmark>=5.1.0",
+    "pytest-cov>=6.2.1",
+    "pytest-mock>=3.14.1",
+]

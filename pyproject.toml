@@ -1,6 +1,6 @@
 [project]
 name = "mcp-spec-driven-development"
-version = "0.1.0"
+version = "0.0.2"
 description = "为AI助手提供系统化功能开发方法论的MCP（模型上下文协议）工具"
 readme = "README.md"
 license = { text = "MIT" }

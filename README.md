@@ -45,6 +45,23 @@ pip install mcp-spec-driven-development
 
 将服务器添加到你的MCP客户端配置中：
 
+#### 快速使用(无需项目代码)
+```json
+{
+  "mcpServers": {
+    "spec-driven-development": {
+      "command": "uvx",
+      "args": [
+        "mcp-spec-driven-development"
+      ],
+      "env": {
+        "MCP_LOG_LEVEL": "INFO"
+      }
+    }
+  }
+}
+```
+
 #### 使用UV运行（推荐）
 ```json
 {

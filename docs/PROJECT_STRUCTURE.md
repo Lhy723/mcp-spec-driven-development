@@ -2,72 +2,34 @@
 
 ```
 mcp-spec-driven-development/
-├── .git/                           # Git版本控制
-├── .gitignore                      # Git忽略文件配置
-├── .kiro/                          # Kiro IDE配置
-├── .pre-commit-config.yaml         # Pre-commit钩子配置
-├── dist/                           # 构建分发文件
-├── scripts/                        # 实用脚本
-│   └── start-server.py            # 服务器启动脚本
-├── src/                           # 源代码目录
-│   └── mcp_spec_driven_development/
-│       ├── __init__.py            # 包初始化文件
-│       ├── __main__.py            # 模块入口点
-│       ├── server.py              # MCP服务器主文件
-│       ├── config.py              # 配置管理
-│       ├── content/               # 内容管理模块
-│       │   ├── __init__.py
-│       │   ├── content_loader.py  # 内容加载器
-│       │   ├── methodology.py     # 方法论管理
-│       │   ├── templates.py       # 模板管理
-│       │   └── data/              # 数据文件
-│       │       ├── methodology/   # 方法论文件
-│       │       │   ├── ears-format.md
-│       │       │   ├── ears-format-zh.md
-│       │       │   ├── phase-transitions.md
-│       │       │   ├── workflow.md
-│       │       │   └── workflow-zh.md
-│       │       └── templates/     # 模板文件
-│       │           ├── design-template.md
-│       │           ├── design-template-zh.md
-│       │           ├── requirements-template.md
-│       │           ├── requirements-template-zh.md
-│       │           ├── tasks-template.md
-│       │           └── tasks-template-zh.md
-│       ├── tools/                 # MCP工具实现
-│       │   ├── __init__.py
-│       │   ├── content_tools.py   # 内容访问工具
-│       │   ├── task_execution_tools.py
-│       │   ├── validation_tools.py # 验证工具
-│       │   └── workflow_tools.py  # 工作流管理工具
-│       ├── validation/            # 文档验证模块
-│       │   ├── __init__.py
-│       │   ├── design_validator.py
-│       │   ├── requirements_validator.py
-│       │   └── task_validator.py
-│       └── workflow/              # 工作流管理模块
-│           ├── __init__.py
-│           ├── models.py          # 数据模型
-│           ├── phase_manager.py   # 阶段管理器
-│           └── state_tracker.py   # 状态跟踪器
-├── tests/                         # 测试套件
+├── src/mcp_spec_driven_development/
 │   ├── __init__.py
-│   ├── test_*.py                  # 各种测试文件
-│   └── ...
-├── .venv/                         # 虚拟环境（本地开发）
-├── API.md                         # API文档
-├── CHANGELOG.md                   # 更新日志
-├── CONTRIBUTING.md                # 贡献指南
-├── INSTALLATION.md                # 安装指南
-├── LICENSE                        # MIT许可证
-├── MAINTENANCE.md                 # 维护指南
-├── PROJECT_STRUCTURE.md           # 项目结构说明（本文件）
-├── pyproject.toml                 # 项目配置文件
-├── README.md                      # 项目说明（中文）
-├── README-en.md                   # 项目说明（英文）
-├── TROUBLESHOOTING.md             # 故障排除指南
-├── USER_GUIDE.md                  # 用户指南
-└── uv.lock                        # UV依赖锁定文件
+│   ├── server.py                    # MCP服务器入口点
+│   ├── config.py                    # 配置管理
+│   ├── content/                     # 内容管理
+│   │   ├── templates.py
+│   │   ├── methodology.py
+│   │   └── data/                    # 模板和方法论文件
+│   ├── tools/                       # MCP工具实现
+│   │   ├── content_tools.py
+│   │   ├── workflow_tools.py
+│   │   └── validation_tools.py
+│   ├── workflow/                    # 工作流管理
+│   │   ├── models.py
+│   │   ├── phase_manager.py
+│   │   └── state_tracker.py
+│   └── validation/                  # 文档验证
+│       ├── requirements_validator.py
+│       ├── design_validator.py
+│       └── task_validator.py
+├── tests/                          # 测试套件
+├── scripts/                        # 实用脚本
+├── docs/                          # 文档
+│   ├── INSTALLATION.md            # 安装指南
+│   ├── USER_GUIDE.md             # 用户指南
+│   ├── API.md                    # API文档
+│   └── TROUBLESHOOTING.md        # 故障排除
+└── pyproject.toml                # 项目配置
 ```
 
 ## 核心模块说明

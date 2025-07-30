@@ -21,6 +21,9 @@ MCP规范驱动开发工具通过三个主要类别的工具为AI助手提供全
   - `"requirements"`：EARS格式需求模板
   - `"design"`：设计文档结构模板
   - `"tasks"`：实施任务规划模板
+- `language` (字符串，可选)：模板语言
+  - `"zh"`：中文（默认）
+  - `"en"`：英文
 
 **返回：**
 - 格式化文本形式的模板内容
@@ -32,7 +35,8 @@ MCP规范驱动开发工具通过三个主要类别的工具为AI助手提供全
 {
   "name": "get_template",
   "arguments": {
-    "template_type": "requirements"
+    "template_type": "requirements",
+    "language": "zh"
   }
 }
 ```
